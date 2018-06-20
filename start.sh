@@ -23,6 +23,12 @@ sed -i "s|tracker_server=.*$|tracker_server=${TRACKER_SERVER}|g" /etc/fdfs/clien
 
 fi
 
+if [ -n "$STORAGE_DOMAIN" ] ; then  
+
+sed -i "s|^.*domain_name=.*$|http.domain_name=${STORAGE_DOMAIN}|g" /etc/fdfs/storage.conf
+
+fi
+
 if [ -n "$GROUP_NAME" ] ; then  
 
 sed -i "s|group_name=.*$|group_name=${GROUP_NAME}|g" /etc/fdfs/storage.conf
